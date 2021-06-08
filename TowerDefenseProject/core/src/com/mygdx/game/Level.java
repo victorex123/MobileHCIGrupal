@@ -18,6 +18,7 @@ public class Level
     ButtonExitGame exitButton;
     ButtonLookLvl lookLvlButton;
     ButtonUpLvl upLvlButton;
+    public boolean changelvl;
     /*
     ArrayList<GameObject> gos;
     ArrayList<GameObject> inactiveGos;

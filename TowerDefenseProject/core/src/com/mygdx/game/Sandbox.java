@@ -10,9 +10,11 @@ public class Sandbox implements Screen {
 	MainClass game;
 	WorldController controller;
 	WorldRenderer renderer;
+	Level lvl;
 	int isPC;
 	SpriteBatch batch;
 	Texture img;
+	MainMenu menuScreen;
 
 	public Sandbox(MainClass game)
 	{
@@ -22,10 +24,11 @@ public class Sandbox implements Screen {
 
 		//testSensors();
 
-		Level lvl = new Level();
+		lvl = new Level();
 
 		controller = new WorldController(lvl);
 		renderer = new WorldRenderer(lvl);
+		menuScreen = new MainMenu(this.game);
 
 		//To check if is mobile or desktop version.
 		isPC = Gdx.app.getVersion();
@@ -60,6 +63,11 @@ public class Sandbox implements Screen {
 	@Override
 	public void render(float delta) {
 		controller.update(Gdx.graphics.getDeltaTime());
+
+		if (lvl.changelvl)
+		{
+			this.game.setScreen(menuScreen);
+		}
 
 		renderer.render();
 	}

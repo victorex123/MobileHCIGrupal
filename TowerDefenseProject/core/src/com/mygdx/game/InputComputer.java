@@ -16,8 +16,8 @@ public class InputComputer implements InputProcessor
     public InputComputer(Level level)
     {
         this.level = level;
-        game = new MainClass();
-        menuScreen = new MainMenu(game);
+
+        menuScreen = new MainMenu(this.game);
         point = new Vector3();
     }
 
@@ -63,11 +63,10 @@ public class InputComputer implements InputProcessor
         point.set(screenX,screenY,0);
 
         level.camera.unproject(point);
-        System.out.println("x:"+point.x+"- y:"+point.y);
-        System.out.println(level.exitButton.CheckBounds(point.x,point.y));
+
         if(level.exitButton.CheckBounds(point.x,point.y))
         {
-            game.setScreen(menuScreen);
+            level.changelvl=true;
         }
         return false;
     }
