@@ -11,12 +11,14 @@ public class AudioManager {
     private Sound soundPressButton;
     private Music musicMenu;
     private Music musicGame;
+    private Music musicWin;
 
 
     private AudioManager()
     {
         musicMenu =  Gdx.audio.newMusic(Gdx.files.internal("MusicMenu.mp3"));
         musicGame =  Gdx.audio.newMusic(Gdx.files.internal("MusicGame.mp3"));
+        musicWin =  Gdx.audio.newMusic(Gdx.files.internal("MusicWinGame.mp3"));
         soundPressButton = Gdx.audio.newSound(Gdx.files.internal("soundButtonPress.wav"));
     }
     public static AudioManager getInstance()
@@ -44,6 +46,7 @@ public class AudioManager {
         musicMenu.setVolume(0.4f);
         musicMenu.setLooping(true);
         musicGame.stop();
+        musicWin.stop();
     }
 
     public void PlayMusicGame()
@@ -52,6 +55,16 @@ public class AudioManager {
         musicGame.setVolume(0.4f);
         musicGame.setLooping(true);
         musicMenu.stop();
+        musicWin.stop();
+    }
+
+    public void PlayMusicWin()
+    {
+        musicWin.play();
+        musicWin.setVolume(0.5f);
+        musicWin.setLooping(true);
+        musicMenu.stop();
+        musicGame.stop();
     }
 
     public void MuteVolume()

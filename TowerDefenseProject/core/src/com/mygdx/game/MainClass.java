@@ -8,7 +8,7 @@ public class MainClass extends Game {
     @Override
     public void create() {
         menuScreen = new MainMenu(this);
-        gameScreen = new Sandbox(this);
+        //gameScreen = new Sandbox(this);
 
         setScreen(menuScreen);
     }

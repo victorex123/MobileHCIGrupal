@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 
@@ -24,6 +25,14 @@ public class InputComputer implements InputProcessor
     @Override
     public boolean keyDown(int keycode)
     {
+        if(keycode == Input.Keys.SPACE)
+        {
+            Iventory.getInstance().actualLVL++;
+            if(Iventory.getInstance().actualLVL >3)
+            {
+                Iventory.getInstance().actualLVL=3;
+            }
+        }
         return false;
     }
 

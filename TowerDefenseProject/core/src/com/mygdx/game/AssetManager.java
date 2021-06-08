@@ -35,6 +35,8 @@ public class AssetManager
     public Texture lvlUp2Button;
     public BitmapFont titlePanelLookLvl;
     public BitmapFont textActualLvl;
+    public Texture youWin;
+    public Texture backMenu;
 
     private static AssetManager instance = null;
 
@@ -64,6 +66,8 @@ public class AssetManager
         buttonFightEnemy = new Texture(Gdx.files.internal("ButtonFightEnemy.jpg"));
         titlePanelLookLvl = new BitmapFont();
         textActualLvl = new BitmapFont();
+        youWin = new Texture(Gdx.files.internal("YouWin.png"));
+        backMenu =new Texture(Gdx.files.internal("BackMenu.png"));
     }
 
     public static AssetManager getInstance()

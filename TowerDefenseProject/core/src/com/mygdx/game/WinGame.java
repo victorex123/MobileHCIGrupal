@@ -11,8 +11,8 @@ public class WinGame implements Screen {
     MainClass game;
     SpriteBatch batch;
     OrthographicCamera camera;
-    Texture titleGame;
-    Texture startGame;
+    Texture win;
+    Texture backMenu;
     private float timeToGOMenuScreen;
 
 
@@ -21,12 +21,13 @@ public class WinGame implements Screen {
         this.game = game;
         batch = new SpriteBatch();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-        //titleGame = AssetManager.getInstance().titleGame;
+        win = AssetManager.getInstance().youWin;
+        backMenu = AssetManager.getInstance().backMenu;
         //startGame = AssetManager.getInstance().startGame;
     }
     @Override
     public void show() {
-        //AudioManager.getInstance().PlayMusicMenu();
+        AudioManager.getInstance().PlayMusicWin();
     }
 
     @Override
@@ -46,7 +47,8 @@ public class WinGame implements Screen {
         batch.begin();
 
         //button.render(batch);
-        //batch.draw(titleGame,-6,100,12,120);
+        batch.draw(win,-6,100,12,120);
+        batch.draw(backMenu,-4,-50,8,80);
         //batch.draw(startGame,-4,-50,8,80);
         //font.draw(batch,"Click Anywhere to start",-camera.viewportWidth/2,0,camera.viewportWidth, Align.center,true);
 
