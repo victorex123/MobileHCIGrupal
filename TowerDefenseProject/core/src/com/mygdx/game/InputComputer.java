@@ -64,7 +64,7 @@ public class InputComputer implements InputProcessor
 
         level.camera.unproject(point);
 
-
+        //play sound button
         for(int i=0;i<level.buttonArrayList.size();i++)
         {
             if(level.buttonArrayList.get(i).CheckBounds(point.x,point.y))
@@ -73,13 +73,25 @@ public class InputComputer implements InputProcessor
             }
         }
 
-
+        //button exit game
         if(level.exitButton.CheckBounds(point.x,point.y))
         {
             level.changelvl=true;
         }
 
+        //close panel look
+        if(level.actionLookLvl.buttonClose.CheckBounds(point.x,point.y) && level.actionLookLvl.detectSomething)
+        {
+            level.actionLookLvl.ClosePanelLook();
+        }
 
+        //open panel look
+        if(level.lookLvlButton.CheckBounds(point.x,point.y) && !level.actionLookLvl.detectSomething)
+        {
+            level.actionLookLvl.CalculateThingToFind();
+        }
+
+        //mute and desmute music
         if(level.musicButton.CheckBounds(point.x, point.y))
         {
             level.musicButton.musicON=!level.musicButton.musicON;

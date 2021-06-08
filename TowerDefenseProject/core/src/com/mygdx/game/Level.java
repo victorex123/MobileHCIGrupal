@@ -20,6 +20,7 @@ public class Level
     ButtonUpLvl upLvlButton;
     ButtonMusic musicButton;
     ArrayList<Button> buttonArrayList;
+    Look_LVL actionLookLvl;
     public boolean changelvl;
     /*
     ArrayList<GameObject> gos;
@@ -41,15 +42,20 @@ public class Level
         cameraHelper = new CameraHelper(camera);
 
         exitButton = new ButtonExitGame(5,2.5f,2,1);
-        lookLvlButton = new ButtonLookLvl(4,-2,2,1);
-        upLvlButton = new ButtonUpLvl(-4,-2,2,1);
-        musicButton = new ButtonMusic(-5,2.5f,2,1);
+        lookLvlButton = new ButtonLookLvl(3,-4,2,1);
+        upLvlButton = new ButtonUpLvl(-5,-4,2,1);
+        musicButton = new ButtonMusic(-6,2.5f,1.5f,1.5f);
+        actionLookLvl = new Look_LVL();
 
         buttonArrayList = new ArrayList<>();
         buttonArrayList.add(exitButton);
         buttonArrayList.add(lookLvlButton);
         buttonArrayList.add(upLvlButton);
         buttonArrayList.add(musicButton);
+        buttonArrayList.add(actionLookLvl.buttonClose);
+        buttonArrayList.add(actionLookLvl.buttonFight);
+
+
 
         /*gos = new ArrayList<GameObject>();
         inactiveGos = new ArrayList<GameObject>();
@@ -309,6 +315,7 @@ public class Level
         lookLvlButton.render(batch);
         upLvlButton.render(batch);
         musicButton.render(batch);
+        actionLookLvl.render(batch);
 
     }
 

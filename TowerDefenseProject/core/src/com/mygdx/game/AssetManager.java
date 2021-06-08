@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import org.w3c.dom.Text;
@@ -28,6 +29,10 @@ public class AssetManager
     public Texture lvlUpButton;
     public Texture buttonMusicON;
     public Texture buttonMusicOFF;
+    public Texture panelLookLvl;
+    public Texture buttonClosePanel;
+    public Texture buttonFightEnemy;
+    public BitmapFont titlePanelLookLvl;
 
     private static AssetManager instance = null;
 
@@ -51,6 +56,11 @@ public class AssetManager
         lvlUpButton = new Texture(Gdx.files.internal("ButtonUpLvl.jpg"));
         buttonMusicON = new Texture(Gdx.files.internal("buttonMusicON.PNG"));
         buttonMusicOFF = new Texture(Gdx.files.internal("buttonMusicOFF.PNG"));
+        panelLookLvl = new Texture(Gdx.files.internal("MenuLvl.PNG"));
+        buttonClosePanel = new Texture(Gdx.files.internal("ButtonClosePanel.jpg"));
+        buttonFightEnemy = new Texture(Gdx.files.internal("ButtonFightEnemy.jpg"));
+        titlePanelLookLvl = new BitmapFont();
+
 
 
     }
