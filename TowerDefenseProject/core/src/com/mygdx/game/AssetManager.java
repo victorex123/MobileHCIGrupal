@@ -26,6 +26,8 @@ public class AssetManager
     public Texture exitButton;
     public Texture lookLvlButton;
     public Texture lvlUpButton;
+    public Texture buttonMusicON;
+    public Texture buttonMusicOFF;
 
     private static AssetManager instance = null;
 
@@ -47,6 +49,9 @@ public class AssetManager
         exitButton = new Texture(Gdx.files.internal("ButtonExit.jpg"));
         lookLvlButton = new Texture(Gdx.files.internal("ButtonLookLvl.jpg"));
         lvlUpButton = new Texture(Gdx.files.internal("ButtonUpLvl.jpg"));
+        buttonMusicON = new Texture(Gdx.files.internal("buttonMusicON.PNG"));
+        buttonMusicOFF = new Texture(Gdx.files.internal("buttonMusicOFF.PNG"));
+
 
     }
 

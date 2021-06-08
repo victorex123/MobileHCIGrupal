@@ -28,7 +28,7 @@ public class Sandbox implements Screen {
 
 		controller = new WorldController(lvl);
 		renderer = new WorldRenderer(lvl);
-		menuScreen = new MainMenu(this.game);
+
 
 		//To check if is mobile or desktop version.
 		isPC = Gdx.app.getVersion();
@@ -57,7 +57,7 @@ public class Sandbox implements Screen {
 
 	@Override
 	public void show() {
-
+		AudioManager.getInstance().PlayMusicGame();
 	}
 
 	@Override
@@ -66,6 +66,7 @@ public class Sandbox implements Screen {
 
 		if (lvl.changelvl)
 		{
+			menuScreen = new MainMenu(this.game);
 			this.game.setScreen(menuScreen);
 		}
 

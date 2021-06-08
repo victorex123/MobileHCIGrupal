@@ -68,6 +68,21 @@ public class InputComputer implements InputProcessor
         {
             level.changelvl=true;
         }
+
+        if(level.musicButton.CheckBounds(point.x, point.y))
+        {
+            level.musicButton.musicON=!level.musicButton.musicON;
+
+            if(!level.musicButton.musicON)
+            {
+                AudioManager.getInstance().MuteVolume();
+            }
+            else if(level.musicButton.musicON)
+            {
+                AudioManager.getInstance().DesmutedVolume();
+
+            }
+        }
         return false;
     }
 
