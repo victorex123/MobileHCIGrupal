@@ -17,8 +17,6 @@ public class InputTest implements InputProcessor
     public InputTest(Level level)
     {
         this.level = level;
-        game = new MainClass();
-        menuScreen = new MainMenu(game);
         point = new Vector3();
     }
 
@@ -54,11 +52,12 @@ public class InputTest implements InputProcessor
         //This is the point in the screen.
         point.set(screenX,screenY,0);
 
-        level.camera.unproject(point);
-        System.out.println("x:"+point.x+"- y:"+point.y);
+        level.cameraHelper.camera.unproject(point);
+
+
         if(level.exitButton.CheckBounds(point.x,point.y))
         {
-            game.setScreen(menuScreen);
+            //game.setScreen(menuScreen);
         }
 
         //Now the point is in world coordinates.

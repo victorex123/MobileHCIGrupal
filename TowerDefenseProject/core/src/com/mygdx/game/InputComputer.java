@@ -10,12 +10,14 @@ public class InputComputer implements InputProcessor
     public final String tag = "COMPUTER INPUT";
     private Level level;
     private MainClass game;
+    private MainMenu menuScreen;
     Vector3 point;
 
     public InputComputer(Level level)
     {
         this.level = level;
         game = new MainClass();
+        menuScreen = new MainMenu(game);
         point = new Vector3();
     }
 
@@ -45,9 +47,7 @@ public class InputComputer implements InputProcessor
     public boolean touchDown(int screenX, int screenY, int pointer, int button)
     {
         //This is the point in the screen.
-        point.set(screenX,screenY,0);
 
-        level.camera.unproject(point);
 
         //Now the point is in world coordinates.
         //Gdx.app.debug(tag, "Han tocado " + screenX + " - " + screenY + " en el mundo es: " + point.x + "," + point.y +" en el ordenador.");
@@ -60,6 +60,15 @@ public class InputComputer implements InputProcessor
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button)
     {
+        point.set(screenX,screenY,0);
+
+        level.camera.unproject(point);
+        System.out.println("x:"+point.x+"- y:"+point.y);
+        System.out.println(level.exitButton.CheckBounds(point.x,point.y));
+        if(level.exitButton.CheckBounds(point.x,point.y))
+        {
+            game.setScreen(menuScreen);
+        }
         return false;
     }
 

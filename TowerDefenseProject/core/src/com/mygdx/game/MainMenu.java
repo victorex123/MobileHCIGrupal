@@ -32,6 +32,7 @@ public class MainMenu implements Screen {
 
         if(Gdx.input.isTouched())
         {
+            System.out.println("sali");
             game.setScreen(new Sandbox(game));
         }
 
