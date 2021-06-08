@@ -8,6 +8,7 @@ public class AudioManager {
     private static AudioManager instace;
     private int volume = 1;
 
+    private Sound soundPressButton;
     private Music musicMenu;
     private Music musicGame;
 
@@ -16,6 +17,7 @@ public class AudioManager {
     {
         musicMenu =  Gdx.audio.newMusic(Gdx.files.internal("MusicMenu.mp3"));
         musicGame =  Gdx.audio.newMusic(Gdx.files.internal("MusicGame.mp3"));
+        soundPressButton = Gdx.audio.newSound(Gdx.files.internal("soundButtonPress.wav"));
     }
     public static AudioManager getInstance()
     {
@@ -24,6 +26,15 @@ public class AudioManager {
             instace = new AudioManager();
         }
         return instace;
+    }
+
+    public void PlaySound(int id)
+    {
+        if(id == 0)
+        {
+            soundPressButton.play(volume);
+            //System.out.println("sonando primer sonido");
+        }
     }
 
 

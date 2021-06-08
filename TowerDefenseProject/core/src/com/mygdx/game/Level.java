@@ -19,6 +19,7 @@ public class Level
     ButtonLookLvl lookLvlButton;
     ButtonUpLvl upLvlButton;
     ButtonMusic musicButton;
+    ArrayList<Button> buttonArrayList;
     public boolean changelvl;
     /*
     ArrayList<GameObject> gos;
@@ -43,6 +44,12 @@ public class Level
         lookLvlButton = new ButtonLookLvl(4,-2,2,1);
         upLvlButton = new ButtonUpLvl(-4,-2,2,1);
         musicButton = new ButtonMusic(-5,2.5f,2,1);
+
+        buttonArrayList = new ArrayList<>();
+        buttonArrayList.add(exitButton);
+        buttonArrayList.add(lookLvlButton);
+        buttonArrayList.add(upLvlButton);
+        buttonArrayList.add(musicButton);
 
         /*gos = new ArrayList<GameObject>();
         inactiveGos = new ArrayList<GameObject>();

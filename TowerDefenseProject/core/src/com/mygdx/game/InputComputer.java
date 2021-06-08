@@ -64,10 +64,21 @@ public class InputComputer implements InputProcessor
 
         level.camera.unproject(point);
 
+
+        for(int i=0;i<level.buttonArrayList.size();i++)
+        {
+            if(level.buttonArrayList.get(i).CheckBounds(point.x,point.y))
+            {
+                AudioManager.getInstance().PlaySound(0);
+            }
+        }
+
+
         if(level.exitButton.CheckBounds(point.x,point.y))
         {
             level.changelvl=true;
         }
+
 
         if(level.musicButton.CheckBounds(point.x, point.y))
         {
