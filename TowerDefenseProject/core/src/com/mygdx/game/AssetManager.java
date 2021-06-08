@@ -32,7 +32,9 @@ public class AssetManager
     public Texture panelLookLvl;
     public Texture buttonClosePanel;
     public Texture buttonFightEnemy;
+    public Texture lvlUp2Button;
     public BitmapFont titlePanelLookLvl;
+    public BitmapFont textActualLvl;
 
     private static AssetManager instance = null;
 
@@ -54,15 +56,14 @@ public class AssetManager
         exitButton = new Texture(Gdx.files.internal("ButtonExit.jpg"));
         lookLvlButton = new Texture(Gdx.files.internal("ButtonLookLvl.jpg"));
         lvlUpButton = new Texture(Gdx.files.internal("ButtonUpLvl.jpg"));
+        lvlUp2Button = new Texture(Gdx.files.internal("ButtonUpLvl2.jpg"));
         buttonMusicON = new Texture(Gdx.files.internal("buttonMusicON.PNG"));
         buttonMusicOFF = new Texture(Gdx.files.internal("buttonMusicOFF.PNG"));
         panelLookLvl = new Texture(Gdx.files.internal("MenuLvl.PNG"));
         buttonClosePanel = new Texture(Gdx.files.internal("ButtonClosePanel.jpg"));
         buttonFightEnemy = new Texture(Gdx.files.internal("ButtonFightEnemy.jpg"));
         titlePanelLookLvl = new BitmapFont();
-
-
-
+        textActualLvl = new BitmapFont();
     }
 
     public static AssetManager getInstance()

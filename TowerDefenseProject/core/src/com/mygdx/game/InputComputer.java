@@ -64,18 +64,11 @@ public class InputComputer implements InputProcessor
 
         level.camera.unproject(point);
 
-        //play sound button
-        for(int i=0;i<level.buttonArrayList.size();i++)
-        {
-            if(level.buttonArrayList.get(i).CheckBounds(point.x,point.y))
-            {
-                AudioManager.getInstance().PlaySound(0);
-            }
-        }
 
         //button exit game
         if(level.exitButton.CheckBounds(point.x,point.y))
         {
+            AudioManager.getInstance().PlaySound(0);
             level.changelvl=true;
         }
 
@@ -83,12 +76,24 @@ public class InputComputer implements InputProcessor
         if(level.actionLookLvl.buttonClose.CheckBounds(point.x,point.y) && level.actionLookLvl.detectSomething)
         {
             level.actionLookLvl.ClosePanelLook();
+            AudioManager.getInstance().PlaySound(0);
+        }
+        if(level.upLvlButton.CheckBounds(point.x,point.y) && Iventory.getInstance().haveKey)
+        {
+            level.upLevel.ClimbLvl();
+            level.actionLookLvl.ClosePanelLook();
+            AudioManager.getInstance().PlaySound(0);
+            if(Iventory.getInstance().actualLVL==4)
+            {
+                level.winTheGame=true;
+            }
         }
 
         //open panel look
         if(level.lookLvlButton.CheckBounds(point.x,point.y) && !level.actionLookLvl.detectSomething)
         {
             level.actionLookLvl.CalculateThingToFind();
+            AudioManager.getInstance().PlaySound(0);
         }
 
         //mute and desmute music
@@ -105,6 +110,7 @@ public class InputComputer implements InputProcessor
                 AudioManager.getInstance().DesmutedVolume();
 
             }
+            AudioManager.getInstance().PlaySound(0);
         }
         return false;
     }

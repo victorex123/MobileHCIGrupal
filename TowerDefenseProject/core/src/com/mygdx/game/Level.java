@@ -21,7 +21,9 @@ public class Level
     ButtonMusic musicButton;
     ArrayList<Button> buttonArrayList;
     Look_LVL actionLookLvl;
-    public boolean changelvl;
+    UpLevel upLevel;
+    public boolean changelvl=false;
+    public boolean winTheGame=false;
     /*
     ArrayList<GameObject> gos;
     ArrayList<GameObject> inactiveGos;
@@ -46,6 +48,7 @@ public class Level
         upLvlButton = new ButtonUpLvl(-5,-4,2,1);
         musicButton = new ButtonMusic(-6,2.5f,1.5f,1.5f);
         actionLookLvl = new Look_LVL();
+        upLevel = new UpLevel();
 
         buttonArrayList = new ArrayList<>();
         buttonArrayList.add(exitButton);
@@ -316,6 +319,7 @@ public class Level
         upLvlButton.render(batch);
         musicButton.render(batch);
         actionLookLvl.render(batch);
+        upLevel.render(batch);
 
     }
 

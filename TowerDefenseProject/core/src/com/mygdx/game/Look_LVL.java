@@ -53,8 +53,10 @@ public class Look_LVL {
 
     public void CalculateThingToFind()
     {
+
         ourNumber = (int)(Math.random()*numberEnemy+1);
         System.out.println(ourNumber);
+
         if(ourNumber == numberEnemy)
         {
             System.out.println("enemigo");
@@ -65,6 +67,7 @@ public class Look_LVL {
         {
             detectKey=true;
             detectSomething=true;
+            Iventory.getInstance().haveKey=true;
             System.out.println("llave");
         }
         else if(ourNumber!=numberEnemy && ourNumber!=numberKey)

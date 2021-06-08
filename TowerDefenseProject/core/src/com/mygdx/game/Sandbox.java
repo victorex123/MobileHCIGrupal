@@ -14,7 +14,6 @@ public class Sandbox implements Screen {
 	int isPC;
 	SpriteBatch batch;
 	Texture img;
-	MainMenu menuScreen;
 
 	public Sandbox(MainClass game)
 	{
@@ -66,8 +65,13 @@ public class Sandbox implements Screen {
 
 		if (lvl.changelvl)
 		{
-			menuScreen = new MainMenu(this.game);
-			this.game.setScreen(menuScreen);
+			this.game.setScreen(new MainMenu(game));
+		}
+
+		if(lvl.winTheGame)
+		{
+			this.game.setScreen(new WinGame(game));
+			Iventory.getInstance().actualLVL=1;
 		}
 
 		renderer.render();

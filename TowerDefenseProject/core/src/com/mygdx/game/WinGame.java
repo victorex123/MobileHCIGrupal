@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class MainMenu implements Screen {
+public class WinGame implements Screen {
     MainClass game;
     SpriteBatch batch;
     OrthographicCamera camera;
@@ -16,17 +16,17 @@ public class MainMenu implements Screen {
     private float timeToGOMenuScreen;
 
 
-    public MainMenu(MainClass game)
+    public WinGame(MainClass game)
     {
         this.game = game;
         batch = new SpriteBatch();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-        titleGame = AssetManager.getInstance().titleGame;
-        startGame = AssetManager.getInstance().startGame;
+        //titleGame = AssetManager.getInstance().titleGame;
+        //startGame = AssetManager.getInstance().startGame;
     }
     @Override
     public void show() {
-        AudioManager.getInstance().PlayMusicMenu();
+        //AudioManager.getInstance().PlayMusicMenu();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MainMenu implements Screen {
 
         if(Gdx.input.isTouched() && timeToGOMenuScreen>=1.0f)
         {
-            game.setScreen(new Sandbox(game));
+            game.setScreen(new MainMenu(game));
         }
 
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -46,8 +46,8 @@ public class MainMenu implements Screen {
         batch.begin();
 
         //button.render(batch);
-        batch.draw(titleGame,-6,100,12,120);
-        batch.draw(startGame,-4,-50,8,80);
+        //batch.draw(titleGame,-6,100,12,120);
+        //batch.draw(startGame,-4,-50,8,80);
         //font.draw(batch,"Click Anywhere to start",-camera.viewportWidth/2,0,camera.viewportWidth, Align.center,true);
 
         batch.end();
