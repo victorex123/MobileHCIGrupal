@@ -12,17 +12,22 @@ import java.util.Vector;
 
 public class Level
 {
+
+    OrthographicCamera camera;
+    CameraHelper cameraHelper;
+    ButtonExitGame exitButton;
+    ButtonLookLvl lookLvlButton;
+    ButtonUpLvl upLvlButton;
+    /*
     ArrayList<GameObject> gos;
     ArrayList<GameObject> inactiveGos;
     Wave wave;
-    OrthographicCamera camera;
-    CameraHelper cameraHelper;
     float timer;
     int enemyIterator;
     int groupIterator;
 
     int playerHP;
-    int money;
+    int money;*/
 
     Level()
     {
@@ -32,7 +37,11 @@ public class Level
 
         cameraHelper = new CameraHelper(camera);
 
-        gos = new ArrayList<GameObject>();
+        exitButton = new ButtonExitGame(5,2.5f,2,1);
+        lookLvlButton = new ButtonLookLvl(4,-2,2,1);
+        upLvlButton = new ButtonUpLvl(-4,-2,2,1);
+
+        /*gos = new ArrayList<GameObject>();
         inactiveGos = new ArrayList<GameObject>();
 
         //Create background
@@ -224,12 +233,12 @@ public class Level
 
         this.playerHP = 10;
         this.money = 150;
-
+*/
     }
 
     public void update(float delta)
     {
-        for (GameObject go : gos)
+        /*for (GameObject go : gos)
         {
             go.update(delta);
         }
@@ -275,17 +284,24 @@ public class Level
         anEnemyReachTheEnd();
 
         cameraHelper.update(delta);
+
+         */
     }
 
     public void render(SpriteBatch batch)
     {
+        /*
         for (GameObject  go : gos)
         {
             go.render(batch);
-        }
+        }*/
+        exitButton.render(batch);
+        lookLvlButton.render(batch);
+        upLvlButton.render(batch);
+
     }
 
-    public void createTestUFO(float x, float y)
+    /*public void createTestUFO(float x, float y)
     {
         gos.add(GOFactory.createSimpleEnemy(x-0.5f,y-0.5f));
     }
@@ -461,4 +477,6 @@ public class Level
             }
         }
     }
+    */
+
 }

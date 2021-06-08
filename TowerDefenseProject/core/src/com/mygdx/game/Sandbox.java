@@ -6,18 +6,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 
-public class Sandbox extends ApplicationAdapter {
-
+public class Sandbox implements Screen {
+	MainClass game;
 	WorldController controller;
 	WorldRenderer renderer;
-
 	int isPC;
-
 	SpriteBatch batch;
 	Texture img;
 
-	@Override
-	public void create () {
+	public Sandbox(MainClass game)
+	{
+		this.game = game;
 
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 
@@ -42,18 +41,7 @@ public class Sandbox extends ApplicationAdapter {
 			GestureDetector gd = new GestureDetector(new InputMobile(controller.level));
 			Gdx.input.setInputProcessor(gd);
 		}
-
-		//InputTest it = new InputTest(controller.level);
-		//GestureDetector gd = new GestureDetector(new GestureListenerTest());
-
-		//InputMultiplexer im = new InputMultiplexer();
-		//im.addProcessor(it);
-		//im.addProcessor(gd);
-
-		//Gdx.input.setInputProcessor(im);
-
 	}
-
 	private void testSensors()
 	{
 		Gdx.app.debug("SENSORS", "Accelerometer: " + Gdx.input.isPeripheralAvailable(Input.Peripheral.Accelerometer));
@@ -65,8 +53,12 @@ public class Sandbox extends ApplicationAdapter {
 	}
 
 	@Override
-	public void render () {
+	public void show() {
 
+	}
+
+	@Override
+	public void render(float delta) {
 		controller.update(Gdx.graphics.getDeltaTime());
 
 		renderer.render();
@@ -75,11 +67,24 @@ public class Sandbox extends ApplicationAdapter {
 	@Override
 	public void resize(int width, int height)
 	{
-
-		//renderer.level.camera.viewportWidth = (Constants.VIEWPORT_HEIGHT/height)*width;
 		renderer.resize(width,height);
 	}
-	
+
+	@Override
+	public void pause() {
+
+	}
+
+	@Override
+	public void resume() {
+
+	}
+
+	@Override
+	public void hide() {
+
+	}
+
 	@Override
 	public void dispose () {
 		renderer.dispose();

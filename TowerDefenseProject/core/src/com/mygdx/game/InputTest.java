@@ -10,11 +10,15 @@ public class InputTest implements InputProcessor
 
     public final String tag = "INPUT";
     private Level level;
+    private MainClass game;
+    MainMenu menuScreen;
     Vector3 point;
 
     public InputTest(Level level)
     {
         this.level = level;
+        game = new MainClass();
+        menuScreen = new MainMenu(game);
         point = new Vector3();
     }
 
@@ -35,7 +39,7 @@ public class InputTest implements InputProcessor
         //Gdx.app.debug(tag, "Han escrito el caracter " + character);
         if (character == 'f')
         {
-            level.cameraHelper.followThatGuy(level.gos.get(0));
+            //level.cameraHelper.followThatGuy(level.gos.get(0));
         }
         if (character == 'q')
         {
@@ -51,10 +55,15 @@ public class InputTest implements InputProcessor
         point.set(screenX,screenY,0);
 
         level.camera.unproject(point);
+        System.out.println("x:"+point.x+"- y:"+point.y);
+        if(level.exitButton.CheckBounds(point.x,point.y))
+        {
+            game.setScreen(menuScreen);
+        }
 
         //Now the point is in world coordinates.
         Gdx.app.debug(tag, "Han tocado " + screenX + " - " + screenY + " en el mundo es: " + point.x + "," + point.y +" en el ordenador.");
-        level.createTestUFO(point.x,point.y);
+        //level.createTestUFO(point.x,point.y);
         return false;
     }
 

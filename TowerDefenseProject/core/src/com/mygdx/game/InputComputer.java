@@ -9,11 +9,13 @@ public class InputComputer implements InputProcessor
 
     public final String tag = "COMPUTER INPUT";
     private Level level;
+    private MainClass game;
     Vector3 point;
 
     public InputComputer(Level level)
     {
         this.level = level;
+        game = new MainClass();
         point = new Vector3();
     }
 
@@ -51,7 +53,7 @@ public class InputComputer implements InputProcessor
         //Gdx.app.debug(tag, "Han tocado " + screenX + " - " + screenY + " en el mundo es: " + point.x + "," + point.y +" en el ordenador.");
         //level.testTower(point.x, point.y,0);
         //level.testUFO(point.x, point.y);
-        level.createTower(point.x, point.y);
+        //level.createTower(point.x, point.y);
         return false;
     }
 

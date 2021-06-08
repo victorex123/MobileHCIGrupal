@@ -21,6 +21,12 @@ public class AssetManager
     private TextureRegion laserturret = null;
     private TextureRegion laserammo = null;
 
+    public Texture titleGame;
+    public Texture startGame;
+    public Texture exitButton;
+    public Texture lookLvlButton;
+    public Texture lvlUpButton;
+
     private static AssetManager instance = null;
 
     private AssetManager()
@@ -35,6 +41,12 @@ public class AssetManager
         gunammo = atlas.findRegion("bullet");
         laserturret = atlas.findRegion("torreRayo");
         laserammo = atlas.findRegion("torreRayoAmmo");
+
+        titleGame = new Texture(Gdx.files.internal("TittleGame.png"));
+        startGame = new Texture(Gdx.files.internal("PressToStart.png"));
+        exitButton = new Texture(Gdx.files.internal("ButtonExit.jpg"));
+        lookLvlButton = new Texture(Gdx.files.internal("ButtonLookLvl.jpg"));
+        lvlUpButton = new Texture(Gdx.files.internal("ButtonUpLvl.jpg"));
 
     }
 

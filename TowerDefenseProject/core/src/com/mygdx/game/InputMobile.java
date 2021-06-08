@@ -29,7 +29,7 @@ public class InputMobile implements GestureDetector.GestureListener
 
         //Now the point is in world coordinates.
         Gdx.app.debug(tag, "Han tocado " + x + " - " + y + " en el mundo es: " + point.x + "," + point.y +" en el móvil.");
-        level.createTower(point.x, point.y);
+       // level.createTower(point.x, point.y);
         return false;
     }
 
@@ -41,7 +41,7 @@ public class InputMobile implements GestureDetector.GestureListener
             point.set(x,y,0);
             level.camera.unproject(point);
 
-            level.createTower(point.x, point.y);
+           // level.createTower(point.x, point.y);
         }
         return false;
     }

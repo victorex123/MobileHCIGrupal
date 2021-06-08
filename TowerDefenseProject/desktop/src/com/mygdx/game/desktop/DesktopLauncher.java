@@ -2,6 +2,7 @@ package com.mygdx.game.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.mygdx.game.MainClass;
 import com.mygdx.game.Sandbox;
 
 public class DesktopLauncher {
@@ -13,6 +14,6 @@ public class DesktopLauncher {
 		config.width = 1280;
 		config.height = 720;
 
-		new LwjglApplication(new Sandbox(), config);
+		new LwjglApplication(new MainClass(), config);
 	}
 }
