@@ -61,7 +61,7 @@ public class AssetManager
         lvlUp2Button = new Texture(Gdx.files.internal("ButtonUpLvl2.jpg"));
         buttonMusicON = new Texture(Gdx.files.internal("buttonMusicON.PNG"));
         buttonMusicOFF = new Texture(Gdx.files.internal("buttonMusicOFF.PNG"));
-        panelLookLvl = new Texture(Gdx.files.internal("MenuLvl.PNG"));
+        panelLookLvl = new Texture(Gdx.files.internal("Menulvl.PNG"));
         buttonClosePanel = new Texture(Gdx.files.internal("ButtonClosePanel.jpg"));
         buttonFightEnemy = new Texture(Gdx.files.internal("ButtonFightEnemy.jpg"));
         titlePanelLookLvl = new BitmapFont();

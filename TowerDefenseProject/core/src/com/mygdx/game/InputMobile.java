@@ -27,6 +27,53 @@ public class InputMobile implements GestureDetector.GestureListener
 
         level.camera.unproject(point);
 
+        if(level.exitButton.CheckBounds(point.x,point.y))
+        {
+            AudioManager.getInstance().PlaySound(0);
+            level.changelvl=true;
+        }
+
+        //close panel look
+        if(level.actionLookLvl.buttonClose.CheckBounds(point.x,point.y) && level.actionLookLvl.detectSomething)
+        {
+            level.actionLookLvl.ClosePanelLook();
+            AudioManager.getInstance().PlaySound(0);
+        }
+        if(level.upLvlButton.CheckBounds(point.x,point.y) && Iventory.getInstance().haveKey)
+        {
+            level.upLevel.ClimbLvl();
+            level.actionLookLvl.ClosePanelLook();
+            AudioManager.getInstance().PlaySound(0);
+            if(Iventory.getInstance().actualLVL==4)
+            {
+                level.winTheGame=true;
+            }
+        }
+
+        //open panel look
+        if(level.lookLvlButton.CheckBounds(point.x,point.y) && !level.actionLookLvl.detectSomething)
+        {
+            level.actionLookLvl.CalculateThingToFind();
+            AudioManager.getInstance().PlaySound(0);
+        }
+
+        //mute and desmute music
+        if(level.musicButton.CheckBounds(point.x, point.y))
+        {
+            level.musicButton.musicON=!level.musicButton.musicON;
+
+            if(!level.musicButton.musicON)
+            {
+                AudioManager.getInstance().MuteVolume();
+            }
+            else if(level.musicButton.musicON)
+            {
+                AudioManager.getInstance().DesmutedVolume();
+
+            }
+            AudioManager.getInstance().PlaySound(0);
+        }
+
         //Now the point is in world coordinates.
         Gdx.app.debug(tag, "Han tocado " + x + " - " + y + " en el mundo es: " + point.x + "," + point.y +" en el móvil.");
        // level.createTower(point.x, point.y);

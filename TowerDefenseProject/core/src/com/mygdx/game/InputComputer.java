@@ -10,15 +10,12 @@ public class InputComputer implements InputProcessor
 
     public final String tag = "COMPUTER INPUT";
     private Level level;
-    private MainClass game;
-    private MainMenu menuScreen;
     Vector3 point;
 
     public InputComputer(Level level)
     {
         this.level = level;
 
-        menuScreen = new MainMenu(this.game);
         point = new Vector3();
     }
 
