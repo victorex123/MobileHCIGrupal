@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -25,10 +26,17 @@ public class AssetManager
     public Texture youWin;
     public Texture backMenu;
 
+    public Texture button;
+
+    public BitmapFont font;
+
+
     private static AssetManager instance = null;
 
     private AssetManager()
     {
+        font = new BitmapFont();
+
         titleGame = new Texture(Gdx.files.internal("TittleGame.png"));
         startGame = new Texture(Gdx.files.internal("PressToStart.png"));
         exitButton = new Texture(Gdx.files.internal("ButtonExit.jpg"));
@@ -44,7 +52,19 @@ public class AssetManager
         textActualLvl = new BitmapFont();
         youWin = new Texture(Gdx.files.internal("YouWin.png"));
         backMenu =new Texture(Gdx.files.internal("BackMenu.png"));
+        button = createButtonTexture();
     }
+
+    private Texture createButtonTexture() {
+        Pixmap pm = new Pixmap(10,10, Pixmap.Format.RGBA8888);
+        pm.setColor(0.1f,0.1f,0.1f,1);
+        pm.drawRectangle(0,0,10,10);
+        pm.setColor(0.1f,0.1f,0.1f,1);
+        pm.fillRectangle(1,1,8,8);
+        return new Texture(pm);
+    }
+
+
 
     public static AssetManager getInstance()
     {
@@ -54,4 +74,6 @@ public class AssetManager
         }
         return instance;
     }
+
+
 }

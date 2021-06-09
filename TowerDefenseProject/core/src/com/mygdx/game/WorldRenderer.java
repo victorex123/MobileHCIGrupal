@@ -27,6 +27,13 @@ public class WorldRenderer {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        batch.setProjectionMatrix(level.hudCamera.combined);
+        batch.begin();
+
+        level.renderHud(batch);
+
+        batch.end();
+
 
         batch.setProjectionMatrix(level.camera.combined);
         batch.begin();
@@ -34,7 +41,6 @@ public class WorldRenderer {
         level.render(batch);
 
         batch.end();
-        //Gdx.app.debug("BATCH","Max sprites: " + batch.maxSpritesInBatch + " - render calls: " + batch.renderCalls);
 
     }
 
@@ -42,7 +48,7 @@ public class WorldRenderer {
 
         Gdx.app.debug("LIFECYCLE", "Width: " + width + " - Height: " + height);
 
-        level.camera.viewportWidth = (Constants.VIEWPORT_HEIGHT/height)*width;
+        //level.camera.viewportWidth = (Constants.VIEWPORT_HEIGHT/height)*width;
         level.camera.update();
     }
 

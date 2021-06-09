@@ -5,6 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 
+import java.rmi.dgc.DGC;
+
 public class InputComputer implements InputProcessor
 {
 
@@ -93,6 +95,23 @@ public class InputComputer implements InputProcessor
             {
                 level.winTheGame=true;
             }
+        }
+
+        //Fight panel
+        if(level.actionLookLvl.buttonFight.CheckBounds(point.x,point.y) && level.actionLookLvl.detectSomething)
+        {
+            Gdx.app.debug("TESTING","Boton de pelea pulsado.");
+            level.actionLookLvl.ClosePanelLook();
+            level.fightPanel.startFight();
+            AudioManager.getInstance().PlaySound(0);
+        }
+
+        //Close Fight panel
+        if(level.closeFightPanelButton.CheckBounds(point.x,point.y) && level.fightPanel.fighting)
+        {
+            Gdx.app.debug("TESTING","Boton de pelea pulsado.");
+            level.fightPanel.fighting = false;
+            AudioManager.getInstance().PlaySound(0);
         }
 
         //open panel look
