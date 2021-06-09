@@ -20,8 +20,7 @@ public class GameBackground extends GameObject{
     @Override
     public void render(SpriteBatch batch)
     {
-        batch.draw(AssetManager.getInstance().getTRByEnum(AssetManager.TEXTURES.BACKGROUND),
-                this.getX(), this.getY(), this.getWidth(), this.getHeight());
+
     }
 
     @Override
